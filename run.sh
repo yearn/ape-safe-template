@@ -1,1 +1,1 @@
-docker run -it --entrypoint "bash" --workdir "/home/pn/work" -v "$PWD":"/home/pn/work" robowoofyregistry.azurecr.io/ape-safe-template:7432e97641a22caab46fa3ac237d6f496cb036f0
+docker build . -t ape-safe-template:local && docker run -it --entrypoint "bash" --workdir "/home/pn/work" -v "$HOME/.brownie/accounts":"/home/pn/.brownie/accounts" -v "$PWD":"/home/pn/work" ape-safe-template:local
