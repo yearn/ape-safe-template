@@ -11,7 +11,7 @@ Just do ```run.sh``` and you will end up in a shell in a docker container with a
 
 How to run the function `main()` in `scripts/main.py` using a Goreli fork:
 ```
-run.sh
+./run.sh
 ../activate.sh
 brownie run main --network gor-main-fork
 ```
