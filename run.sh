@@ -1,0 +1,1 @@
+docker run -it --entrypoint "bash" --workdir "/home/pn/work" -v "$PWD":"/home/pn/work" robowoofyregistry.azurecr.io/ape-safe-template:7432e97641a22caab46fa3ac237d6f496cb036f0

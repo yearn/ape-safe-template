@@ -1,0 +1,59 @@
+live:
+- name: Ethereum
+  networks:
+    - name: Mainnet (Infura)
+      chainid: 1
+      id: mainnet
+      host: https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+      explorer: https://cache.yearn.science/etherscan/api
+- name: Rinkeby
+  networks:
+    - chainid: 4
+      host: https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+      id: rin-main
+      name: Mainnet
+- name: Goerli
+  networks:
+    - chainid: 5
+      host: https://goerli.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+      id: gor-main
+      name: Mainnet
+      multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
+      explorer: https://api-goerli.etherscan.io/api
+
+development:
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: mainnet
+    gas_limit: 30000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: eth-main-fork
+  name: Ganache-CLI (eth-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: rin-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: rin-main-fork
+  name: Ganache-CLI (RINKEYBY-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: gor-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: gor-main-fork
+  name: Ganache-CLI (Goreli-Mainnet Fork)
