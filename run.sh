@@ -1,1 +1,1 @@
-docker build . -t ape-safe-template:local && docker run -it --entrypoint "bash" --workdir "/home/pn/work" -v "$HOME/.brownie/accounts":"/home/pn/.brownie/accounts" -v "$PWD":"/home/pn/work" ape-safe-template:local
+docker build . -t ape-safe-template:local --build-arg download_compilers=$DOWNLOAD_COMPILERS && docker run -it --entrypoint "bash" --workdir "/home/pn/work" -v "$HOME/.brownie/accounts":"/home/pn/.brownie/accounts" -v "$PWD":"/home/pn/work" ape-safe-template:local

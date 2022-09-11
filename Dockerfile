@@ -9,6 +9,7 @@ RUN apt-get update \
 USER pn
 
 COPY requirements.txt /requirements.txt
+COPY download_compilers.py /download_compilers.py
 COPY network-config.yaml /home/pn/network-config.yaml
 
 ENV VIRTUAL_ENV=/home/pn/.local/pipx/venvs
@@ -28,3 +29,7 @@ RUN pip install --no-cache-dir -r requirements.txt && \
  rm -rf ~/.cache && \
  npm cache clean --force && \
  sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
+ARG download_compilers
+RUN echo $download_compilers
+RUN if [ "$download_compilers" = "true" ]; then python download_compilers.py; else echo "skipping compiler download"; fi
